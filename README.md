@@ -21,4 +21,4 @@ npx serve
 
 - `index.html` - Main PathFindR presentation
 - `diagrams/` - Architecture and system diagrams
-- `style-guide/` - Brand assets and logos
+- `style-guide/` - Brand assets and logos 
