@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PathFindR Diagram Gallery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* PathFindR Brand Colors */
+            --pathfinder-primary: #F76B1C;
+            --pathfinder-secondary: #C2410C;
+            --pathfinder-accent: #FBAD18;
+            --pathfinder-success: #10b981;
+            --pathfinder-warning: #f59e0b;
+            --pathfinder-gray: #4B5563;
+            --pathfinder-light: #F9FAFB;
+            --pathfinder-dark: #111827;
+            --pathfinder-orange-50: #FFF7ED;
+            --pathfinder-orange-100: #FFEDD5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--pathfinder-dark);
+            background: linear-gradient(135deg, var(--pathfinder-light) 0%, #e2e8f0 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--pathfinder-primary) 0%, var(--pathfinder-secondary) 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            margin-bottom: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.2);
+        }
+
+        .header h1 {
+            font-size: 3em;
+            font-weight: 800;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header .subtitle {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+
+        .diagram-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .diagram-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 4px solid var(--pathfinder-primary);
+        }
+
+        .diagram-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(37, 99, 235, 0.15);
+        }
+
+        .diagram-card h3 {
+            color: var(--pathfinder-primary);
+            margin-bottom: 15px;
+            font-size: 1.3em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .diagram-card p {
+            color: var(--pathfinder-gray);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .diagram-link {
+            display: inline-block;
+            background: var(--pathfinder-primary);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        .diagram-link:hover {
+            background: var(--pathfinder-secondary);
+        }
+
+        .features-list {
+            list-style: none;
+            margin: 15px 0;
+        }
+
+        .features-list li {
+            padding: 5px 0;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .features-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--pathfinder-success);
+            font-weight: bold;
+        }
+
+        .back-to-presentation {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .back-link {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--pathfinder-accent) 0%, var(--pathfinder-primary) 100%);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: transform 0.3s ease;
+        }
+
+        .back-link:hover {
+            transform: translateY(-2px);
+        }
+
+        .overview {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-left: 5px solid var(--pathfinder-primary);
+            padding: 25px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+        }
+
+        .overview h2 {
+            color: var(--pathfinder-primary);
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5em;
+            }
+            
+            .diagram-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>PathFindR Diagram Gallery</h1>
+            <div class="subtitle">Static Architecture Diagrams for Mobile Compatibility</div>
+        </header>
+
+        <div class="overview">
+            <h2>📱 Mobile-Friendly Diagrams</h2>
+            <p>This gallery contains static versions of all PathFindR architecture diagrams optimized for mobile viewing. Each diagram is rendered as a standalone page with detailed explanations and can be viewed without JavaScript dependencies.</p>
+        </div>
+
+        <div class="diagram-grid">
+            <div class="diagram-card">
+                <h3>🏗️ System Architecture</h3>
+                <p>Complete PathFindR system overview showing client layers, API gateway, multi-agent system, data persistence, AI providers, and infrastructure components.</p>
+                <ul class="features-list">
+                    <li>PWA Frontend & Mobile Browser Support</li>
+                    <li>Unified NestJS API Gateway</li>
+                    <li>Multi-Agent Processing System</li>
+                    <li>PostgreSQL + pgvector Data Layer</li>
+                    <li>Railway Deployment Infrastructure</li>
+                </ul>
+                <a href="system-architecture.html" class="diagram-link">View Architecture Diagram</a>
+            </div>
+
+            <div class="diagram-card">
+                <h3>🤖 Agent Systems</h3>
+                <p>Two-tier agent architecture comparing development agents (that build PathFindR) with production agents (that analyze facilities and generate reports).</p>
+                <ul class="features-list">
+                    <li>Development Agents: Context-Efficient Building</li>
+                    <li>Production Agents: Facility Analysis</li>
+                    <li>Ultra-Minimal Main Window (5% Context)</li>
+                    <li>Fresh 100% Context Per Agent</li>
+                    <li>Specialized Agent Communication</li>
+                </ul>
+                <a href="agent-systems.html" class="diagram-link">View Agent Systems</a>
+            </div>
+
+            <div class="diagram-card">
+                <h3>📄 RAG Pipeline</h3>
+                <p>Document processing and knowledge retrieval pipeline showing ingestion, processing, storage, retrieval, and response generation for compliance checking.</p>
+                <ul class="features-list">
+                    <li>PDF/DOCX Document Processing</li>
+                    <li>OpenAI Embedding Generation</li>
+                    <li>pgvector Semantic Search</li>
+                    <li>GPT-4 Response Generation</li>
+                    <li>Source Citation & Verification</li>
+                </ul>
+                <a href="rag-pipeline.html" class="diagram-link">View RAG Pipeline</a>
+            </div>
+
+            <div class="diagram-card">
+                <h3>⚡ Context Optimization</h3>
+                <p>Revolutionary context efficiency comparison showing PathFindR's ultra-minimal approach versus traditional single-context methods, achieving 95% efficiency improvement.</p>
+                <ul class="features-list">
+                    <li>95% Context Window Preservation</li>
+                    <li>Unlimited Workflow Complexity</li>
+                    <li>Fresh Context Per Agent</li>
+                    <li>No Context Exhaustion</li>
+                    <li>Intelligent Task Delegation</li>
+                </ul>
+                <a href="context-optimization.html" class="diagram-link">View Context Innovation</a>
+            </div>
+        </div>
+
+        <div class="back-to-presentation">
+            <a href="../pathfinder-presentation.html" class="back-link">← Back to Full Presentation</a>
+        </div>
+    </div>
+</body>
+</html>

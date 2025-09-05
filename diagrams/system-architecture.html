@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PathFindR System Architecture</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <style>
+        :root {
+            /* PathFindR Brand Colors */
+            --pathfinder-primary: #F76B1C;
+            --pathfinder-secondary: #C2410C;
+            --pathfinder-accent: #FBAD18;
+            --pathfinder-gray: #4B5563;
+            --pathfinder-light: #F9FAFB;
+            --pathfinder-dark: #111827;
+            --pathfinder-orange-50: #FFF7ED;
+            --pathfinder-orange-100: #FFEDD5;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, var(--pathfinder-light) 0%, #e2e8f0 100%);
+            margin: 0;
+            padding: 20px;
+            padding-top: 80px;
+        }
+
+        .sticky-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(247, 107, 28, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .nav-logo {
+            color: white;
+            font-size: 1.5em;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: background 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+        h1 {
+            color: var(--pathfinder-primary);
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            font-weight: 700;
+        }
+        .diagram-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .description {
+            background: linear-gradient(135deg, var(--pathfinder-orange-50) 0%, var(--pathfinder-orange-100) 100%);
+            border-left: 5px solid var(--pathfinder-primary);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .back-link {
+            display: inline-block;
+            background: var(--pathfinder-primary);
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+        .back-link:hover {
+            background: var(--pathfinder-secondary);
+        }
+    </style>
+</head>
+<body>
+    <nav class="sticky-nav">
+        <div class="nav-container">
+            <div class="nav-logo">PathFindR AI</div>
+            <div class="nav-links">
+                <a href="../pathfinder-presentation.html" class="nav-link">← Full Presentation</a>
+                <a href="./index.html" class="nav-link">Gallery</a>
+                <a href="./agent-systems.html" class="nav-link">Agents</a>
+                <a href="./rag-pipeline.html" class="nav-link">RAG</a>
+                <a href="./context-optimization.html" class="nav-link">Context</a>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Diagram Gallery</a>
+        
+        <h1>PathFindR System Architecture</h1>
+        
+        <div class="description">
+            <p><strong>System Overview:</strong> PathFindR's comprehensive architecture spans client applications, unified API gateway, intelligent multi-agent processing, and robust data persistence layers. The system is designed for scalability, reliability, and seamless integration across multiple AI providers.</p>
+        </div>
+
+        <div class="diagram-container">
+            <div class="mermaid">
+                graph TB
+                    subgraph "Client Layer"
+                        PWA[PWA Frontend<br/>Next.js 15 + TypeScript]
+                        Mobile[Mobile Browser<br/>iOS/Android]
+                    end
+                    
+                    subgraph "API Gateway"
+                        API[Unified PathFindR API<br/>NestJS + TypeScript]
+                    end
+                    
+                    subgraph "Multi-Agent System"
+                        Orchestrator[Master Orchestrator]
+                        ImageAgent[Image Analysis Agent]
+                        RiskAgent[Risk Assessment Agent]
+                        ComplianceAgent[Compliance Agent]
+                    end
+                    
+                    subgraph "Data Layer"
+                        PG[(PostgreSQL<br/>User Data)]
+                        Vector[(pgvector<br/>Embeddings)]
+                        IndexedDB[(IndexedDB<br/>Local Cache)]
+                    end
+                    
+                    subgraph "AI Providers"
+                        OpenAI[OpenAI Vision API]
+                        Gemini[Google Gemini API]
+                    end
+                    
+                    subgraph "Infrastructure"
+                        Railway[Railway Deployment]
+                        Docker[Docker Containers]
+                    end
+                    
+                    PWA --> API
+                    Mobile --> API
+                    API --> Orchestrator
+                    Orchestrator --> ImageAgent
+                    Orchestrator --> RiskAgent
+                    Orchestrator --> ComplianceAgent
+                    
+                    ImageAgent --> OpenAI
+                    ImageAgent --> Gemini
+                    RiskAgent --> PG
+                    ComplianceAgent --> Vector
+                    
+                    PWA --> IndexedDB
+                    API --> PG
+                    API --> Vector
+                    
+                    Railway --> Docker
+                    Docker --> API
+            </div>
+        </div>
+
+        <div class="description">
+            <h3>Key Components:</h3>
+            <ul>
+                <li><strong>Client Layer:</strong> Progressive Web App with mobile browser support</li>
+                <li><strong>API Gateway:</strong> Unified NestJS backend handling all agent orchestration</li>
+                <li><strong>Multi-Agent System:</strong> Specialized AI agents for different analysis tasks</li>
+                <li><strong>Data Layer:</strong> PostgreSQL with pgvector for embeddings, IndexedDB for offline storage</li>
+                <li><strong>AI Providers:</strong> Multiple AI provider support with intelligent failover</li>
+                <li><strong>Infrastructure:</strong> Railway deployment with Docker containerization</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'base',
+            themeVariables: {
+                primaryColor: '#2563eb',
+                primaryTextColor: '#1e293b',
+                primaryBorderColor: '#3b82f6',
+                lineColor: '#64748b',
+                secondaryColor: '#f1f5f9',
+                tertiaryColor: '#e2e8f0'
+            }
+        });
+    </script>
+</body>
+</html>
