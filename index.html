@@ -42,6 +42,20 @@
             background: linear-gradient(135deg, var(--pathfinder-light) 0%, #e2e8f0 100%);
             padding-top: 80px; /* Add space for sticky nav */
         }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Scroll offset for anchor links */
+        section[id]:before {
+            content: '';
+            display: block;
+            height: 90px;
+            margin-top: -90px;
+            visibility: hidden;
+        }
 
         .sticky-nav {
             position: fixed;
@@ -2189,14 +2203,30 @@
             menuIcon.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
         }
         
-        // Close menu when clicking a link
+        // Close menu when clicking a link and handle smooth scroll
         document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
+            link.addEventListener('click', (e) => {
                 const navLinks = document.getElementById('navLinks');
                 const menuIcon = document.getElementById('menu-icon');
                 if (window.innerWidth <= 768) {
                     navLinks.classList.remove('active');
                     menuIcon.textContent = '☰';
+                }
+                
+                // Handle smooth scroll with offset
+                const href = link.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    e.preventDefault();
+                    const targetId = href.substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        const offset = 85; // Height of sticky nav + padding
+                        const targetPosition = targetElement.offsetTop - offset;
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
                 }
             });
         });
