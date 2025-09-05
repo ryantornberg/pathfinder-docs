@@ -422,7 +422,7 @@
 
         .demo-link {
             background: rgba(255, 255, 255, 0.2);
-            color: white;
+            color: white !important;
             padding: 12px 24px;
             border-radius: 8px;
             text-decoration: none;
@@ -433,6 +433,12 @@
             align-items: center;
             gap: 8px;
             white-space: nowrap;
+            font-size: 1em;
+        }
+        
+        .demo-link span {
+            color: white !important;
+            display: inline !important;
         }
 
         .demo-link:hover {
@@ -2076,9 +2082,9 @@
 
                 <h3>Live Demo URLs</h3>
                 <div class="demo-links">
-                    <a href="https://pathfinder-demo-production.up.railway.app/" class="demo-link" target="_blank">🌐 Live PWA Demo</a>
-                    <a href="https://pathfinder-api-demo-production.up.railway.app/api/docs" class="demo-link" target="_blank">📚 API Documentation</a>
-                    <a href="https://pathfinder-api-demo-production.up.railway.app/health" class="demo-link" target="_blank">💚 System Health</a>
+                    <a href="https://pathfinder-demo-production.up.railway.app/" class="demo-link" target="_blank">🌐 <span>Live PWA Demo</span></a>
+                    <a href="https://pathfinder-api-demo-production.up.railway.app/api/docs" class="demo-link" target="_blank">📚 <span>API Documentation</span></a>
+                    <a href="https://pathfinder-api-demo-production.up.railway.app/health" class="demo-link" target="_blank">💚 <span>System Health</span></a>
                 </div>
             </div>
         </section>
@@ -2161,9 +2167,9 @@
             <p>See our revolutionary risk management platform in action with live demos and comprehensive documentation.</p>
             
             <div class="demo-links">
-                <a href="https://pathfinder-demo-production.up.railway.app/" class="demo-link" target="_blank">🚀 Launch Live Demo</a>
-                <a href="https://pathfinder-api-demo-production.up.railway.app/api/docs" class="demo-link" target="_blank">📖 Explore API Docs</a>
-                <a href="https://github.com/ryanjbrant/pathfinder" class="demo-link" target="_blank">💻 View Source Code</a>
+                <a href="https://pathfinder-demo-production.up.railway.app/" class="demo-link" target="_blank">🚀 <span>Launch Live Demo</span></a>
+                <a href="https://pathfinder-api-demo-production.up.railway.app/api/docs" class="demo-link" target="_blank">📖 <span>Explore API Docs</span></a>
+                <a href="https://github.com/ryanjbrant/pathfinder" class="demo-link" target="_blank">💻 <span>View Source Code</span></a>
             </div>
         </div>
     </div>
