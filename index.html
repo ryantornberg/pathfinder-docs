@@ -97,9 +97,60 @@
             background: rgba(255, 255, 255, 0.2);
         }
 
+        /* Mobile menu button */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5em;
+            cursor: pointer;
+            padding: 8px;
+        }
+
         @media (max-width: 768px) {
+            body {
+                padding-top: 60px;
+            }
+            
+            .sticky-nav {
+                padding: 10px 0;
+            }
+            
+            .nav-logo span {
+                font-size: 1.2em;
+            }
+            
+            .nav-logo img {
+                height: 30px;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
             .nav-links {
                 display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(247, 107, 28, 0.98);
+                flex-direction: column;
+                padding: 20px;
+                gap: 10px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+                border-top: 1px solid rgba(255, 255, 255, 0.2);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-link {
+                width: 100%;
+                text-align: center;
+                padding: 12px 16px;
             }
         }
 
@@ -838,7 +889,10 @@
                 <img src="style-guide/Logos/Icon/primary-solid-pathfindr-black-gold.png" alt="PathFindR Logo">
                 <span>PathFindR AI</span>
             </a>
-            <div class="nav-links">
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+                <span id="menu-icon">☰</span>
+            </button>
+            <div class="nav-links" id="navLinks">
                 <a href="#overview" class="nav-link">Overview</a>
                 <a href="#architecture" class="nav-link">Architecture</a>
                 <a href="#agents" class="nav-link">Agent System</a>
@@ -2125,6 +2179,37 @@
             window.addEventListener('afterprint', function() {
                 document.body.classList.remove('printing');
             });
+        });
+    </script>
+    <script>
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const menuIcon = document.getElementById('menu-icon');
+            navLinks.classList.toggle('active');
+            menuIcon.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+        }
+        
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                const navLinks = document.getElementById('navLinks');
+                const menuIcon = document.getElementById('menu-icon');
+                if (window.innerWidth <= 768) {
+                    navLinks.classList.remove('active');
+                    menuIcon.textContent = '☰';
+                }
+            });
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const nav = document.querySelector('.sticky-nav');
+            const navLinks = document.getElementById('navLinks');
+            const menuIcon = document.getElementById('menu-icon');
+            if (!nav.contains(e.target) && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                menuIcon.textContent = '☰';
+            }
         });
     </script>
 </body>
