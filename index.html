@@ -47,15 +47,6 @@
         html {
             scroll-behavior: smooth;
         }
-        
-        /* Scroll offset for anchor links */
-        section[id]:before {
-            content: '';
-            display: block;
-            height: 90px;
-            margin-top: -90px;
-            visibility: hidden;
-        }
 
         .sticky-nav {
             position: fixed;
@@ -2258,11 +2249,16 @@
                     const targetElement = document.getElementById(targetId);
                     if (targetElement) {
                         const offset = 85; // Height of sticky nav + padding
-                        const targetPosition = targetElement.offsetTop - offset;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - offset;
                         window.scrollTo({
-                            top: targetPosition,
+                            top: offsetPosition,
                             behavior: 'smooth'
                         });
+                        // Update URL hash without triggering scroll
+                        if (history.pushState) {
+                            history.pushState(null, null, href);
+                        }
                     }
                 }
             });
