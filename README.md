@@ -14,6 +14,7 @@ PathFindR is an educational facility risk management platform that blends AI ima
 - Review deployment expectations (Docker Compose locally, Railway in production) and external dependencies such as OpenAI, Pinecone, and Roboflow.
 
 ## Document Library
+- [User Guide](user-guide.md) — Step-by-step walkthrough for assessors, admins, and chat users.
 - [System Architecture Overview](architecture-overview.md) — Big-picture map of frontend, backend, and data services, including deployment considerations.
 - [Agents & Orchestration](agents-architecture.md) — Details on the Master Orchestrator, routing logic, and the suite of safety, knowledge, and chat agents.
 - [Image Analysis Pipeline](image-analysis-pipeline.md) — How camera captures flow through Roboflow detection, GPT-4o reasoning, and PASS-aligned risk scoring.
