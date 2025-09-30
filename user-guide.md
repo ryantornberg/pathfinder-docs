@@ -18,13 +18,11 @@ This guide walks safety teams through the PathFindR demo experience—from signi
 
 ### 2.1 Start a New Assessment
 1. From the **Dashboard**, click **Start assessment** (or the `+` button on mobile).
-2. Give the walkthrough a name—use a campus + location convention so it’s easy to find later.
-3. PathFindR creates a draft assessment immediately; it also stores a local copy in case you lose connectivity.
+2. PathFindR creates a draft assessment immediately, saves it locally for offline use, and opens the capture workflow.
 
 ### 2.2 Capture & Upload Images
 - Switch to the **Camera** view (or tap **Add media** within the assessment).
 - Capture new photos directly or select existing images from the device gallery.
-- Add optional notes to each photo (e.g., “Exit blocked by storage carts”).
 - When you press **Upload & analyze**, the backend orchestrator sends the image through Roboflow detection and GPT-4o reasoning.
 
 ### 2.3 Track Processing Status
@@ -45,8 +43,7 @@ This guide walks safety teams through the PathFindR demo experience—from signi
   - Compliance citations (NFPA 101, OSHA 1910, ADA) where applicable.
 - Toggle **Accept** or **Dismiss** to keep the official hazard list accurate; decisions sync back to the backend once wired in.
 
-### 3.3 Notes & Collaboration
-- Add assessor notes to hazards so follow-up teams know the site context.
+- Add assessor notes to hazards after the initial analysis so follow-up teams know the site context.
 - The provenance section (if enabled) shows which AI services and knowledge sources produced the finding—a quick way to verify citations during audits.
 
 ## 4. Ask Guy: Follow-Up Questions
